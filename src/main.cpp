@@ -3,8 +3,8 @@
 #include <SDL2/SDL.h>
 
 #define SZ 256
-#define a 1
-#define A 100
+#define a 10
+#define A 1000
 
 bool init();
 bool loop();
