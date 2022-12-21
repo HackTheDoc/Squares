@@ -64,11 +64,6 @@ bool loop() {
     SDL_Event e;
     while (SDL_PollEvent(&e) != 0) {
         switch (e.type) {
-            case SDL_KEYDOWN:
-                if (e.key.keysym.sym == SDLK_q) {
-                    l = false;
-                }
-                break;
             case SDL_MOUSEBUTTONDOWN:
                 int p, q;
                 SDL_GetMouseState(&p, &q);
