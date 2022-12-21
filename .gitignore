@@ -1,6 +1,9 @@
 # ignore ALL .d files
 *.d
 
+# ignore ALL files in OBJ directory
+obj/
+
 # ignore ALL files in ANY directory named temp
 temp/
 

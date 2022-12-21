@@ -17,6 +17,8 @@ int r = 0;
 int g = 0;
 int b = 0;
 
+int K;
+
 int main(int argc, char const *argv[]) {
     srand(time(0));
 
@@ -52,6 +54,8 @@ bool init() {
         r = rand() % 256;
         g = rand() % 256;
         b = rand() % 256;
+
+        K = rand() % 10 + 1;
     }
     return o;
 }
@@ -77,11 +81,17 @@ bool loop() {
                     x = rand() % (m.w-SZ);
                     y = rand() % (m.h-SZ);
                     SDL_SetWindowPosition(w, x, y);
+
+                    K--;
                 }
             default:
                 break;
         }
     }
+    if (K == 0) {
+        l = false;
+    }
+
     SDL_UpdateWindowSurface(w);
 
     return l;
