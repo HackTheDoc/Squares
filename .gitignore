@@ -1,0 +1,11 @@
+# ignore ALL .d files
+*.d
+
+# ignore ALL files in ANY directory named temp
+temp/
+
+# ignore VSCODE files
+.vscode/
+
+#ignore Makefile
+Makefile
