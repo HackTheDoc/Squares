@@ -3,6 +3,8 @@
 #include <SDL2/SDL.h>
 
 #define SZ 256
+#define a 1
+#define A 10
 
 bool init();
 bool loop();
@@ -16,6 +18,8 @@ SDL_Surface* s = NULL;
 int r = 0;
 int g = 0;
 int b = 0;
+
+int K;
 
 int main(int argc, char const *argv[]) {
     srand(time(0));
@@ -52,6 +56,8 @@ bool init() {
         r = rand() % 256;
         g = rand() % 256;
         b = rand() % 256;
+
+        K = rand() % A + a;
     }
     return o;
 }
@@ -64,6 +70,9 @@ bool loop() {
     SDL_Event e;
     while (SDL_PollEvent(&e) != 0) {
         switch (e.type) {
+            case SDL_QUIT:
+                l = false;
+                break;
             case SDL_MOUSEBUTTONDOWN:
                 int p, q;
                 SDL_GetMouseState(&p, &q);
@@ -75,12 +84,18 @@ bool loop() {
                     x = rand() % (m.w-SZ);
                     y = rand() % (m.h-SZ);
                     SDL_SetWindowPosition(w, x, y);
+
+                    K--;
                 }
                 break;
             default:
                 break;
         }
     }
+    if (K == 0) {
+        l = false;
+    }
+
     SDL_UpdateWindowSurface(w);
 
     return l;
