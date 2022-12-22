@@ -3,6 +3,8 @@
 #include <SDL2/SDL.h>
 
 #define SZ 256
+#define a 1
+#define A 10
 
 bool init();
 bool loop();
@@ -55,7 +57,7 @@ bool init() {
         g = rand() % 256;
         b = rand() % 256;
 
-        K = rand() % 10 + 1;
+        K = rand() % A + a;
     }
     return o;
 }
@@ -70,6 +72,7 @@ bool loop() {
         switch (e.type) {
             case SDL_QUIT:
                 l = false;
+                break;
             case SDL_MOUSEBUTTONDOWN:
                 int p, q;
                 SDL_GetMouseState(&p, &q);
@@ -84,6 +87,7 @@ bool loop() {
 
                     K--;
                 }
+                break;
             default:
                 break;
         }
